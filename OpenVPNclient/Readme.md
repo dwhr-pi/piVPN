@@ -14,9 +14,8 @@ sudo apt install openvpn -y
 
 ## 2. Transfer Configuration Files
 
-Obtain the .ovpn configuration file from your VPN provider or server. 
-Transfer it to your Raspberry Pi using a method like SCP, USB, or email.
-
+Obtain the `.ovpn` configuration file from your VPN provider or server. 
+Transfer it to your Raspberry Pi using a method like SCP, USB, or email.  
 Move the file to the OpenVPN directory:
 
 ```
@@ -37,8 +36,8 @@ Add the following lines:
 your-username
 your-password
 ```
-Save and exit (Ctrl+X, then Y, and Enter). 
-Update the .ovpn file to use this credentials file:
+Save and exit (`Ctrl+X`, then `Y`, and `Enter`). 
+Update the `.ovpn` file to use this credentials file:
 
 ```
 auth-user-pass /etc/openvpn/auth.txt
@@ -56,10 +55,11 @@ You will see logs indicating the connection status.
 
 ## 5. Enable Auto-Connect at Boot
 
-To ensure the VPN connects automatically on boot, rename your '.ovpn' file to match this format:
+To ensure the VPN connects automatically on boot, rename your `.ovpn` file to match this format:
 
 ```
-sudo mv /etc/openvpn/your-config-file.ovpn /etc/openvpn/client.conf
+sudo mv /etc/openvpn/your-config-file.ovpn  
+/etc/openvpn/client.conf
 ```
 
 Enable the OpenVPN service:
@@ -72,16 +72,21 @@ sudo systemctl start openvpn@client
 ## 6. Verify Connection
 
 Check your public IP address to confirm you're connected to the VPN:
+
 ```
 curl ifconfig.me
 ```
 
 ## Tips
 
-Ensure your '.ovpn' file is correctly configured for your VPN server.
+Ensure your `.ovpn` file is correctly configured for your VPN server.
 
-Use sudo systemctl status openvpn@client to troubleshoot connection issues.
+ + Use `sudo systemctl status openvpn@client` to troubleshoot connection issues.
 
-For enhanced security, avoid storing plain-text credentials unless necessary.
+ + For enhanced security, avoid storing plain-text credentials unless necessary.
 
-This setup ensures a secure and reliable VPN connection on your Raspberry Pi
+This setup ensures a secure and reliable VPN connection on your Raspberry Pi.  
+
+
+[1)](https://forums.raspberrypi.com/viewtopic.php?t=229197)  
+[2)](https://openvpn.net/as-docs/raspberry-pi.html)
